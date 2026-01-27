@@ -22,5 +22,11 @@ const translations = {
         gameOver: "ГРА ЗАКІНЧЕНА",
         fleetDestroyed: "Ваш флот знищено!",
         restart: "Почати заново"
+    },
+    it: {
+        score: "Punteggio",
+        gameOver: "PARTITA FINITA",
+        fleetDestroyed: "La tua flotta è stata distrutta!",
+        restart: "Ricomincia"
     }
 };

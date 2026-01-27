@@ -2,9 +2,26 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
 const gameOverElement = document.getElementById("game-over");
+const langSelect = document.getElementById("lang-select");
+const gameOverTitle = document.getElementById("game-over-title");
+const gameOverText = document.getElementById("game-over-text");
+const restartButton = document.getElementById("restart-button");
+
+let currentLang = langSelect.value;
+
+function updateLanguage() {
+    currentLang = langSelect.value;
+    scoreElement.innerHTML = `${translations[currentLang].score}: ${score}`;
+    gameOverTitle.innerText = translations[currentLang].gameOver;
+    gameOverText.innerText = translations[currentLang].fleetDestroyed;
+    restartButton.innerText = translations[currentLang].restart;
+}
 
 const box = 20;
 let score = 0;
+
+langSelect.addEventListener("change", updateLanguage);
+updateLanguage();
 let snake = [];
 snake[0] = { x: 9 * box, y: 10 * box };
 
@@ -42,7 +59,7 @@ function collision(head, array) {
 
 function resetGame() {
     score = 0;
-    scoreElement.innerHTML = `Счет: ${score}`;
+    scoreElement.innerHTML = `${translations[currentLang].score}: ${score}`;
     snake = [];
     snake[0] = { x: 9 * box, y: 10 * box };
     d = undefined;
@@ -82,7 +99,7 @@ function draw() {
 
     if (snakeX == food.x && snakeY == food.y) {
         score++;
-        scoreElement.innerHTML = `Счет: ${score}`;
+        scoreElement.innerHTML = `${translations[currentLang].score}: ${score}`;
         food = {
             x: Math.floor(Math.random() * 19 + 1) * box,
             y: Math.floor(Math.random() * 19 + 1) * box

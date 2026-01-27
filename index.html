@@ -8,16 +8,25 @@
 </head>
 <body>
     <div id="game-container">
+        <div id="language-selector">
+            <select id="lang-select">
+                <option value="en">English</option>
+                <option value="es">Español</option>
+                <option value="ru" selected>Русский</option>
+                <option value="uk">Українська</option>
+            </select>
+        </div>
         <div id="ui-overlay">
             <div id="score">Счет: 0</div>
         </div>
         <canvas id="gameCanvas"></canvas>
         <div id="game-over" style="display: none;">
-            <h1>ИГРА ОКОНЧЕНА</h1>
-            <p>Ваш флот уничтожен!</p>
-            <button onclick="resetGame()">Начать заново</button>
+            <h1 id="game-over-title">ИГРА ОКОНЧЕНА</h1>
+            <p id="game-over-text">Ваш флот уничтожен!</p>
+            <button id="restart-button" onclick="resetGame()">Начать заново</button>
         </div>
     </div>
+    <script src="js/translations.js"></script>
     <script src="js/snake.js"></script>
 </body>
 </html>

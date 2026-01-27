@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #050505;
+    background-image:
+        radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+        radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+        radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+        radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+    font-family: 'Orbitron', 'Exo 2', sans-serif;
+    color: #00ffcc;
+    overflow: hidden;
+}
+
+#game-container {
+    position: relative;
+    box-shadow: 0 0 20px #00ffff;
+    border: 2px solid #00ffff;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+canvas {
+    display: block;
+}
+
+#ui-overlay {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    pointer-events: none;
+}
+
+#score {
+    font-size: 20px;
+    text-shadow: 0 0 5px #00ffcc;
+}
+
+#game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 20px;
+    border: 1px solid #ff0066;
+    box-shadow: 0 0 15px #ff0066;
+    color: #ff0066;
+    z-index: 10;
+}
+
+#game-over h1 {
+    margin-top: 0;
+    font-size: 32px;
+}
+
+#game-over button {
+    background: transparent;
+    border: 1px solid #00ffcc;
+    color: #00ffcc;
+    padding: 10px 20px;
+    font-family: 'Orbitron', 'Exo 2', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#game-over button:hover {
+    background: #00ffcc;
+    color: #000;
+    box-shadow: 0 0 10px #00ffcc;
+}

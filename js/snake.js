@@ -72,20 +72,21 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i === 0) ? "#00ffcc" : "#0099cc";
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = "#00ffff";
-        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        ctx.fillStyle = (i === 0) ? "#2ecc71" : "#27ae60";
         ctx.shadowBlur = 0;
+        ctx.shadowColor = "transparent";
+        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+        // Draw a small border for the snake segments
+        ctx.strokeStyle = "#1b5e20";
+        ctx.strokeRect(snake[i].x, snake[i].y, box, box);
     }
 
-    ctx.fillStyle = "#ff0066";
-    ctx.shadowBlur = 15;
-    ctx.shadowColor = "#ff0066";
+    ctx.fillStyle = "#e67e22";
+    ctx.shadowBlur = 0;
+    ctx.shadowColor = "transparent";
     ctx.beginPath();
     ctx.arc(food.x + box / 2, food.y + box / 2, box / 2, 0, Math.PI * 2);
     ctx.fill();
-    ctx.shadowBlur = 0;
 
     if (!d) return;
 

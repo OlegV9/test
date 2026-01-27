@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Space Snake</title>
+    <title>Tropical Snake</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="palm palm-left">🌴</div>
+    <div class="palm palm-right">🌴</div>
     <div id="game-container">
         <div id="language-selector">
             <select id="lang-select">
@@ -23,7 +25,7 @@
         <canvas id="gameCanvas"></canvas>
         <div id="game-over" style="display: none;">
             <h1 id="game-over-title">ИГРА ОКОНЧЕНА</h1>
-            <p id="game-over-text">Ваш флот уничтожен!</p>
+            <p id="game-over-text">Змея потерялась в океане!</p>
             <button id="restart-button" onclick="resetGame()">Начать заново</button>
         </div>
     </div>

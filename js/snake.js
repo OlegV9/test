@@ -72,20 +72,41 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = (i === 0) ? "#2ecc71" : "#27ae60";
+        let grad = ctx.createLinearGradient(snake[i].x, snake[i].y, snake[i].x + box, snake[i].y + box);
+        if (i === 0) {
+            grad.addColorStop(0, "#2ecc71");
+            grad.addColorStop(1, "#27ae60");
+        } else {
+            grad.addColorStop(0, "#27ae60");
+            grad.addColorStop(1, "#1e8449");
+        }
+        ctx.fillStyle = grad;
         ctx.shadowBlur = 0;
-        ctx.shadowColor = "transparent";
         ctx.fillRect(snake[i].x, snake[i].y, box, box);
-        // Draw a small border for the snake segments
-        ctx.strokeStyle = "#1b5e20";
+
+        ctx.strokeStyle = "rgba(0,0,0,0.1)";
         ctx.strokeRect(snake[i].x, snake[i].y, box, box);
     }
 
-    ctx.fillStyle = "#e67e22";
-    ctx.shadowBlur = 0;
-    ctx.shadowColor = "transparent";
+    // Coconut food rendering
+    let foodGrad = ctx.createRadialGradient(
+        food.x + box/3, food.y + box/3, box/10,
+        food.x + box/2, food.y + box/2, box/2
+    );
+    foodGrad.addColorStop(0, "#a1887f"); // Light brown highlight
+    foodGrad.addColorStop(1, "#5d4037"); // Dark brown
+
+    ctx.fillStyle = foodGrad;
     ctx.beginPath();
     ctx.arc(food.x + box / 2, food.y + box / 2, box / 2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Add coconut "eyes" or texture dots
+    ctx.fillStyle = "#3e2723";
+    ctx.beginPath();
+    ctx.arc(food.x + box/2, food.y + box/2.5, 1.5, 0, Math.PI * 2);
+    ctx.arc(food.x + box/2.5, food.y + box/2.2, 1, 0, Math.PI * 2);
+    ctx.arc(food.x + box/1.8, food.y + box/2.2, 1, 0, Math.PI * 2);
     ctx.fill();
 
     if (!d) return;

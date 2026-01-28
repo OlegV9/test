@@ -7,36 +7,71 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background: linear-gradient(to bottom, #87CEEB 0%, #b0e0e6 40%, #20b2aa 40%, #008b8b 70%, #f2d2a9 70%, #e1c16e 100%);
+    background:
+        linear-gradient(to bottom, #a8d8ea 0%, #dff6ff 30%, #4db6ac 30%, #00796b 60%, #c2b280 60%, #e1c16e 100%);
+    background-attachment: fixed;
     font-family: 'Exo 2', sans-serif;
     color: #2c3e50;
     overflow: hidden;
 }
 
+body::before {
+    content: "";
+    position: absolute;
+    top: 60%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(#a69566 1px, transparent 1px);
+    background-size: 4px 4px;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
 .palm {
     position: absolute;
-    font-size: 150px;
+    font-size: 180px;
     z-index: 1;
     user-select: none;
+    filter: drop-shadow(5px 15px 10px rgba(0,0,0,0.2)) saturate(0.8) contrast(1.1);
 }
 
 .palm-left {
     bottom: -20px;
     left: 20px;
-    transform: rotate(-10deg);
+    transform: rotate(-15deg);
+}
+
+.palm-left-far {
+    bottom: 50px;
+    left: -30px;
+    font-size: 120px;
+    opacity: 0.6;
+    filter: blur(2px) saturate(0.5);
+    transform: rotate(-30deg);
 }
 
 .palm-right {
     bottom: -20px;
     right: 20px;
-    transform: rotate(10deg);
+    transform: rotate(15deg);
+}
+
+.palm-right-far {
+    bottom: 40px;
+    right: -40px;
+    font-size: 130px;
+    opacity: 0.5;
+    filter: blur(1px) saturate(0.6);
+    transform: rotate(25deg);
 }
 
 #game-container {
     position: relative;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    border: 8px solid #8b4513; /* Wooden frame */
-    background: #f2d2a9;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    border: 12px solid #5d4037; /* Darker, more textured wood */
+    outline: 2px solid #3e2723;
+    background: radial-gradient(circle at center, #e0d7d3 0%, #d7ccc8 100%);
     z-index: 10;
 }
 

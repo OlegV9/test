@@ -3,6 +3,7 @@ const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
 const gameOverElement = document.getElementById("game-over");
 const langSelect = document.getElementById("lang-select");
+const modeToggle = document.getElementById("mode-toggle");
 const gameOverTitle = document.getElementById("game-over-title");
 const gameOverText = document.getElementById("game-over-text");
 const restartButton = document.getElementById("restart-button");
@@ -21,6 +22,16 @@ const box = 20;
 let score = 0;
 
 langSelect.addEventListener("change", updateLanguage);
+
+modeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("night-mode");
+    if (document.body.classList.contains("night-mode")) {
+        modeToggle.innerText = "☀️";
+    } else {
+        modeToggle.innerText = "🌙";
+    }
+});
+
 updateLanguage();
 let snake = [];
 snake[0] = { x: 9 * box, y: 10 * box };
